@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <bean id="bk1" class="com.example.demo.Book">
+    <property name="title" value="The Alchemist"></property>
+    <property name="author" value="Paulo Coelho"></property>
+    </bean>
+    
+     <bean id="bk2" class="com.example.demo.Book">
+    <property name="title" value="Atomic Habits"></property>
+    <property name="author" value="James Clear"></property>
+    </bean>
+    
+    
+     <bean id="bk3" class="com.example.demo.Book">
+    <property name="title" value="Clean Code"></property>
+    <property name="author" value="Robert C. Martin"></property>
+    </bean>
+    
+    <bean id="lib" class="com.example.demo.Library">
+    <property name="book1" ref="bk1"></property>
+    <property name="book2" ref="bk2"></property>
+    <property name="book3" ref="bk3"></property>
+    </bean>
+
+</beans>
