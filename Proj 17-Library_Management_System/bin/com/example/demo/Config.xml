@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+	<bean id="aut1" class="com.example.demo.Author">
+	<property name="authorId" value="111"></property>
+	<property name="authorName" value="James Gosling "></property>
+	<property name="country" value="(USA)"></property>
+	</bean>
+	
+	<bean id="aut2" class="com.example.demo.Author">
+	<property name="authorId" value="222"></property>
+	<property name="authorName" value="Robert Lafore"></property>
+	<property name="country" value="(Uk)"></property>
+	</bean>
+	
+	<bean id="aut3" class="com.example.demo.Author">
+	<property name="authorId" value="333"></property>
+	<property name="authorName" value="Craig Walls"></property>
+	<property name="country" value="(Usa)"></property>
+	</bean>
+	
+	<bean id="aut4" class="com.example.demo.Author">
+	<property name="authorId" value="444"></property>
+	<property name="authorName" value="Sam Newman"></property>
+	<property name="country" value="(Uk)"></property>
+	</bean>
+	
+	<bean id="bk1" class="com.example.demo.Book">
+	<property name="bookId" value="100"></property>
+	<property name="bookTitle" value="Java in Action"></property>
+	<property name="author" ref="aut1"></property>
+	</bean>
+	
+	<bean id="bk2" class="com.example.demo.Book">
+	<property name="bookId" value="200"></property>
+	<property name="bookTitle" value="Data Structures"></property>
+	<property name="author" ref="aut2"></property>
+	</bean>
+	
+	
+	<bean id="bk3" class="com.example.demo.Book">
+	<property name="bookId" value="300"></property>
+	<property name="bookTitle" value="Spring Boot Mastery"></property>
+	<property name="author" ref="aut3"></property>
+	</bean>
+	
+	<bean id="bk4" class="com.example.demo.Book">
+	<property name="bookId" value="400"></property>
+	<property name="bookTitle" value="Microservices Explained"></property>
+	<property name="author" ref="aut4"></property>
+	</bean>
+	
+	<bean id="lib1" class="com.example.demo.Library">
+	<property name="libraryName" value="Central Library"></property>
+	<property name="books">
+	<list>
+	<ref bean="bk1"/>
+	<ref bean="bk2"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="lib2" class="com.example.demo.Library">
+	<property name="libraryName" value="National Library"></property>
+	<property name="books">
+	<list>
+	<ref bean="bk3"/>
+	<ref bean="bk4"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="ct" class="com.example.demo.City">
+	<property name="cityName" value="Hyderabad"></property>
+	<property name="libraries">
+	<list>
+	<ref bean="lib1"/>
+	<ref bean="lib2"/>
+	</list>
+	</property>
+	</bean>
+</beans>
