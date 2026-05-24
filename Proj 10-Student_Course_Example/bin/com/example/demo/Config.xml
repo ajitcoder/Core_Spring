@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+<bean id="crs" class="com.example.demo.Course">
+<constructor-arg name="courseId" value="101"></constructor-arg>
+<constructor-arg name="courseName" value="Spring Framework"></constructor-arg>
+</bean>
+
+<bean id="stu" class="com.example.demo.Student">
+<constructor-arg name="studentId" value="201"></constructor-arg>
+<constructor-arg name="studentName" value="Ajit kumar"></constructor-arg>
+<constructor-arg name="course" ref="crs"></constructor-arg>
+</bean>
+    
+</beans>
