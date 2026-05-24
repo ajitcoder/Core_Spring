@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="prd" class="com.example.demo.Product">
+    <constructor-arg name="productId" value="501"></constructor-arg>
+    <constructor-arg name="productName" value="laptop"></constructor-arg>
+    <constructor-arg name="price" value="2500"></constructor-arg>
+    </bean>
+    
+    <bean id="cust" class="com.example.demo.Customer">
+    <constructor-arg name="customerId" value="101"></constructor-arg>
+    <constructor-arg name="customerName" value="Ajit kumar"></constructor-arg>
+    <constructor-arg name="address" value="Jamshedpur"></constructor-arg>
+    </bean>
+    
+    <bean id="ord" class="com.example.demo.Order">
+    <constructor-arg name="orderId" value="601"></constructor-arg>
+    <constructor-arg name="customer" ref="cust"></constructor-arg>
+    <constructor-arg name="product" ref="prd"></constructor-arg>
+    <constructor-arg name="quantity" value="2"></constructor-arg>
+    </bean>
+    
+    <bean id="bs" class="com.example.demo.BillService">
+    <constructor-arg name="taxPercentage" value="18"></constructor-arg>
+    <constructor-arg name="discountPercentage" value="10"></constructor-arg>
+    </bean>
+    
+    <bean id="ons" class="com.example.demo.OnlineStore">
+    <constructor-arg name="order" ref="ord"></constructor-arg>
+    <constructor-arg name="billService" ref="bs"></constructor-arg>
+    </bean>
+
+</beans>
