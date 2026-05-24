@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Enable Annotation Scanning -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.example.demo"/>
+    
+   <bean id="aut" class="com.example.demo.Author">
+   <constructor-arg name="authorId" value="111"></constructor-arg>
+   <constructor-arg name="authorName" value="Martin Fowler"></constructor-arg>
+   </bean>
+   
+   <bean id="bk1" class="com.example.demo.Book">
+   <constructor-arg name="bookId" value="100"></constructor-arg>
+   <constructor-arg name="bookTitle" value="Spring Framework Essentials"></constructor-arg>
+   </bean>
+   
+   
+    <bean id="bk2" class="com.example.demo.Book">
+   <constructor-arg name="bookId" value="200"></constructor-arg>
+   <constructor-arg name="bookTitle" value="Clean Code"></constructor-arg>
+   </bean>
+   
+   <bean id="lib" class="com.example.demo.Library">
+   <constructor-arg name="libraryName" value="City Central Library"></constructor-arg>
+   <constructor-arg name="books">
+   <list>
+   <ref bean="bk1"/>
+   <ref bean="bk2"/>
+   </list>
+   </constructor-arg>
+   </bean>
+   
+   <bean id="librn" class="com.example.demo.Librarian">
+   <property name="employeeName" value="Mr.John"></property>
+   </bean>
+    
+</beans>
