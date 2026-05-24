@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+           <bean id ="customer" class="com.example.demo.Customer">
+           <constructor-arg name="customerId" value="111" />
+           <constructor-arg name="customerName" value="RAj"/>
+           <property name="account" ref="acc"></property>
+           </bean>
+           
+           <bean id="acc" class="com.example.demo.Account">
+           <constructor-arg name="accountNumber" value="12345" />
+           <constructor-arg name="balance" value="50000" />
+           <constructor-arg name="customer" ref="customer" />    
+           </bean>
+           
+           
+          
+</beans>
