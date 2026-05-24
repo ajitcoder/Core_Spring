@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <bean id="dep11" class="com.example.demo.Department">
+    <property name="deptName" value="developer"></property>
+    <property name="deptId" value="111"></property>
+    </bean>
+
+
+    <bean id="dep22" class="com.example.demo.Department">
+    <property name="deptName" value="tester"></property>
+    <property name="deptId" value="222"></property>
+    </bean>
+    
+     <bean id="dep33" class="com.example.demo.Department">
+    <property name="deptName" value="designer"></property>
+    <property name="deptId" value="333"></property>
+    </bean>
+    
+    
+    <bean id="comp" class="com.example.demo.Company">
+    <property name="dept1" ref="dep11"></property>
+    <property name="dept2" ref="dep22"></property>
+    <property name="dept3" ref="dep33"></property>
+    </bean>
+</beans>
