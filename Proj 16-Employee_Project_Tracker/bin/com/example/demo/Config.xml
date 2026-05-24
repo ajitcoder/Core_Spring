@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+	<bean id="emp1" class="com.example.demo.Employee">
+	<constructor-arg name="empId" value="111"></constructor-arg>
+	<constructor-arg name="empName" value="John"></constructor-arg>
+	<constructor-arg name="designation" value="developer"></constructor-arg>
+	</bean>
+	
+	<bean id="emp2" class="com.example.demo.Employee">
+	<constructor-arg name="empId" value="222"></constructor-arg>
+	<constructor-arg name="empName" value="Sara"></constructor-arg>
+	<constructor-arg name="designation" value="Tester"></constructor-arg>
+	</bean>
+	
+	<bean id="emp3" class="com.example.demo.Employee">
+	<constructor-arg name="empId" value="333"></constructor-arg>
+	<constructor-arg name="empName" value="Ajit"></constructor-arg>
+	<constructor-arg name="designation" value="Analyst"></constructor-arg>
+	</bean>
+	
+	<bean id="emp4" class="com.example.demo.Employee">
+	<constructor-arg name="empId" value="444"></constructor-arg>
+	<constructor-arg name="empName" value="Amit"></constructor-arg>
+	<constructor-arg name="designation" value="DevOps"></constructor-arg>
+	</bean>
+	
+	<bean id="proj1" class="com.example.demo.Project">
+	<constructor-arg name="projectId" value="001"></constructor-arg>
+	<constructor-arg name="projectName" value="E-Commerce Portal"></constructor-arg>
+	<constructor-arg name="duration" value="3 months"></constructor-arg>
+	</bean>
+	
+	<bean id="proj2" class="com.example.demo.Project">
+	<constructor-arg name="projectId" value="002"></constructor-arg>
+	<constructor-arg name="projectName" value="Banking App"></constructor-arg>
+	<constructor-arg name="duration" value="4 months"></constructor-arg>
+	</bean>
+	
+	
+	<bean id="proj3" class="com.example.demo.Project">
+	<constructor-arg name="projectId" value="003"></constructor-arg>
+	<constructor-arg name="projectName" value="Inventory System"></constructor-arg>
+	<constructor-arg name="duration" value="5 months"></constructor-arg>
+	</bean>
+	
+	
+	<bean id="proj4" class="com.example.demo.Project">
+	<constructor-arg name="projectId" value="004"></constructor-arg>
+	<constructor-arg name="projectName" value="Cloud Deployment"></constructor-arg>
+	<constructor-arg name="duration" value="6 months"></constructor-arg>
+	</bean>
+	
+	<bean id="manag1" class="com.example.demo.Manager">
+	<constructor-arg name="managerName" value="Vivek"></constructor-arg>
+	<constructor-arg name="assignments">
+	<map>
+	<entry key-ref="emp1" value-ref="proj1"></entry>
+	<entry key-ref="emp2" value-ref="proj2"></entry>
+	</map>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="manag2" class="com.example.demo.Manager">
+	<constructor-arg name="managerName" value="Vicky"></constructor-arg>
+	<constructor-arg name="assignments">
+	<map>
+	<entry key-ref="emp3" value-ref="proj3"></entry>
+	<entry key-ref="emp4" value-ref="proj4"></entry>
+	</map>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="dept" class="com.example.demo.Department">
+	<constructor-arg name="deptName" value="IT Department"></constructor-arg>
+	<constructor-arg name="managers">
+	<list>
+	<ref bean="manag1"/>
+	<ref bean="manag2"/>
+	</list>
+	</constructor-arg>
+	</bean>
+</beans>
