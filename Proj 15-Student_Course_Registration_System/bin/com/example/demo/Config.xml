@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+
+	<bean id="cour1" class="com.example.demo.Course">
+	<constructor-arg name="courseId" value="111"></constructor-arg>
+	<constructor-arg name="courseName" value="Java Fundamentals"></constructor-arg>
+	<constructor-arg name="duration" value="3 Months"></constructor-arg>
+	</bean>
+	
+	<bean id="cour2" class="com.example.demo.Course">
+	<constructor-arg name="courseId" value="222"></constructor-arg>
+	<constructor-arg name="courseName" value="Spring Boot"></constructor-arg>
+	<constructor-arg name="duration" value="2 Months"></constructor-arg>
+	</bean>
+	
+	<bean id="cour3" class="com.example.demo.Course">
+	<constructor-arg name="courseId" value="333"></constructor-arg>
+	<constructor-arg name="courseName" value="Python Basics"></constructor-arg>
+	<constructor-arg name="duration" value="2 Months"></constructor-arg>
+	</bean>
+	
+	<bean id="cour4" class="com.example.demo.Course">
+	<constructor-arg name="courseId" value="444"></constructor-arg>
+	<constructor-arg name="courseName" value="Data Science"></constructor-arg>
+	<constructor-arg name="duration" value="6 Months"></constructor-arg>
+	</bean>
+	
+	<bean id="stu1" class="com.example.demo.Student">
+	<constructor-arg name="studentId" value="101"></constructor-arg>
+	<constructor-arg name="studentName" value="Ajit kumar"></constructor-arg>
+	<constructor-arg name="enrolledCourses">
+		<list>
+		<ref bean="cour1"/>
+		<ref bean="cour2"/>
+		</list>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="stu2" class="com.example.demo.Student">
+	<constructor-arg name="studentId" value="102"></constructor-arg>
+	<constructor-arg name="studentName" value="Rajesh kumar"></constructor-arg>
+	<constructor-arg name="enrolledCourses">
+		<list>
+		<ref bean="cour3"/>
+		<ref bean="cour4"/>
+		</list>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="univ" class="com.example.demo.University">
+	<constructor-arg name="universityName" value="Oxford University"></constructor-arg>
+	<constructor-arg name="students">
+	<list>
+		<ref bean="stu1"/>
+		<ref bean="stu2"/>
+	</list>
+	</constructor-arg>
+	</bean>
+</beans>
