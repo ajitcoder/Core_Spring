@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Automatically detect and register beans -->
+	<context:component-scan base-package="com.example.demo" />
+		
+	<context:annotation-config />
+	
+	<bean id="eng" class="com.example.demo.Engine">
+		<constructor-arg name="engineType" value="Diesel"></constructor-arg>
+		<constructor-arg name="horsePower" value="180"></constructor-arg>
+	</bean>
+
+	<bean id="tyre" class="com.example.demo.Tyre">
+		<property name="brand" value="MRF"/>
+		<property name="size" value="18"/>
+	</bean>
+	
+	<bean id="veh" class="com.example.demo.Vehicle">
+		<property name="vehicleName" value="Toyota Fortuner"></property>
+		<constructor-arg name="engine" ref="eng"></constructor-arg>
+	</bean>
+
+	<bean id="sc" class="com.example.demo.ServiceCenter">
+		<property name="serviceType" value="Full Engine Checkup"></property>
+	</bean>
+
+</beans>
+
